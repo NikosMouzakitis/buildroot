@@ -1,0 +1,1 @@
+cmd_/home/nicko/implementations/buildroot/apps/sample_lkm/modules.order := {   echo /home/nicko/implementations/buildroot/apps/sample_lkm/mymodule.ko; :; } | awk '!x[$$0]++' - > /home/nicko/implementations/buildroot/apps/sample_lkm/modules.order

@@ -1,0 +1,1 @@
+cmd_/home/nicko/implementations/buildroot/apps/sample_lkm/mymodule.mod := { echo  /home/nicko/implementations/buildroot/apps/sample_lkm/mymodule.o;  echo; } > /home/nicko/implementations/buildroot/apps/sample_lkm/mymodule.mod

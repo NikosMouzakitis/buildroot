@@ -1,0 +1,1 @@
+cmd_/home/nicko/implementations/buildroot/apps/sample_lkm/Module.symvers := sed 's/ko$$/o/' /home/nicko/implementations/buildroot/apps/sample_lkm/modules.order | scripts/mod/modpost     -o /home/nicko/implementations/buildroot/apps/sample_lkm/Module.symvers -e -i Module.symvers   -T -

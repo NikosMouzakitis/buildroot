@@ -1,0 +1,44 @@
+		
+
+	Comments on Buildroot/QEMU emulation
+	[built for x86_64 using the defconfig for x86_64-qemu plat.]
+
+	Nikos Mouzakitis, 2021
+
+1)	RECOMPILATION OF LINUX SOURCES	
+
+	after having in the directory output/images 
+	ready for run our bzImage and rootfs, 
+	we can alter the linux sources and recompile by 
+	giving the command "make linux-rebuild"
+
+2)      SSH FROM HOST TO GUEST QEMU
+
+	Compile Buildroot again and enable, openssh from 
+	Target Packages -> Network applications.
+	
+	Because Busybox permits the root to ssh, a creation of a new user
+	takes place in the following step.
+	Create a file called user_tables_ssh.txt and pass its
+	path on make menuconfig at "System configuration" on
+	() 'path to user tables'.
+	Contents of the file creating a new user called foo, with password: bar.
+
+	file "user_tables_ssh"
+	foo -1 foo -1 =bar /home/foo /bin/sh - no_comment
+
+	After that using hostforwarding
+	(hostfwd=tcp::22222-:22) [parameter on qemu]
+	ssh to the host using
+	'ssh foo@localhost -p 22222' command.
+
+3)	CROSS-COMPILE USER-SPACE PROGRAM AND SCP TO THE GUEST
+
+	Under apps directory can be found an example of how to 
+	create/cross-compile a sample userspace program and 
+	copy it to the guest usng scp with host port forwarding.
+	Program is cross compiled using the toolchain generated
+	by Buildroot.
+
+4)	CROSS-COMPILE LINUX KERNEL MODULES
+

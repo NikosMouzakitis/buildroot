@@ -1,0 +1,1 @@
+cmd_/home/nicko/implementations/buildroot/apps/sample_lkm/mymodule.ko := ld -r -m elf_x86_64  --build-id=sha1  -T scripts/module.lds -o /home/nicko/implementations/buildroot/apps/sample_lkm/mymodule.ko /home/nicko/implementations/buildroot/apps/sample_lkm/mymodule.o /home/nicko/implementations/buildroot/apps/sample_lkm/mymodule.mod.o;  true
