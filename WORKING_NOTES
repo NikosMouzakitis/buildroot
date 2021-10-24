@@ -5,6 +5,20 @@
 
 	Nikos Mouzakitis, 2021
 
+	script to invoke QEMU with Buildroot linux as a guest:
+	**********************************************************************
+	#!/bin/sh
+
+	qemu-system-x86_64 -M pc \
+		-smp 2 \
+		--enable-kvm \
+		-kernel bzImage \
+		-drive file=rootfs.ext2,if=virtio,format=raw \
+		-append "rootwait root=/dev/vda console=tty1 console=ttyS0" \
+		-nographic \
+		-nic user,model=virtio,hostfwd=tcp::22222-:22 \
+	**********************************************************************
+
 1)	RECOMPILATION OF LINUX SOURCES	
 
 	after having in the directory output/images 
