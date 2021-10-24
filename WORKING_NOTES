@@ -17,6 +17,11 @@
 		-append "rootwait root=/dev/vda console=tty1 console=ttyS0" \
 		-nographic \
 		-nic user,model=virtio,hostfwd=tcp::22222-:22 \
+
+	/* bzImage and rootfs.ext2 are the generated files after a succesful
+	   buildroot compilation for qemu_x86_64_defconfig and can be found 
+	   in the folder output/images */
+
 	**********************************************************************
 
 1)	RECOMPILATION OF LINUX SOURCES	
