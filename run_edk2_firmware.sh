@@ -1,6 +1,9 @@
 #!/bin/bash
 
-machine="q35,smm=on"
+cp /home/nicko/BUSYBOX_INSTALLATION/edk2/Build/OvmfX64/DEBUG_GCC48/FV/OVMF* ovmf-edk2/
+
+machine="q35,smm=on"\
+
 #run the virtual machine,with SMM enabled using the firmware created by the EDK2 codebase.
 qemu-system-x86_64 \
 	-M $machine --enable-kvm  -m 4096 \
