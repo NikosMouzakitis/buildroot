@@ -1,11 +1,7 @@
-		
-
 	Building  Buildroot for QEMU emulation.
 	[built for x86_64 using the defconfig for x86_64-qemu plat.]
 
 	author: Nikos Mouzakitis, 2021
-
-
 
 
 	General script to invoke QEMU with Buildroot linux as a guest:
@@ -81,7 +77,7 @@
 
 4)	CROSS-COMPILE LINUX KERNEL MODULES
 
-	sample program found under sample_lkm/
+	sample program found under apps/sample_lkm/
 	
 	**********************************************************************
 	**********************************************************************
@@ -89,7 +85,10 @@
 
 5)	System Management Mode on QEMU
 
-	trigger-userspace-smi: contains a sample program
+
+	a) Triggering an SMI from a userspace program:
+
+	apps/system-management-interrupts/trigger-userspace-smi: contains a sample program
 	found https://scumjr.github.io/2016/01/04/playing-with-smm-and-qemu/
 	triggering a SMI from userspace.
 	
@@ -117,6 +116,15 @@
 		-nic user,model=virtio,hostfwd=tcp::22222-:22 \
 		-chardev stdio,id=deb \
 		-device isa-debugcon,iobase=0x402,chardev=deb \
+
+
+
+	b) Triggering an SMI using an APIC interrupt from 
+	   a kernel module by writing on the specific ICR 
+	   register on the x86 architecture.
+
+
+
 
 	**********************************************************************
 	**********************************************************************
