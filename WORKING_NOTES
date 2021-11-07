@@ -1,10 +1,9 @@
-	Building  Buildroot for QEMU emulation.
-	[built for x86_64 using the defconfig for x86_64-qemu plat.]
-
-	author: Nikos Mouzakitis, 2021
-
-
-	General script to invoke QEMU with Buildroot linux as a guest:
+	Building  Buildroot for QEMU emulation.				      |
+	[built for x86_64 using the defconfig for x86_64-qemu plat.]	      |
+								              |
+	author: Nikos Mouzakitis, 2021					      |
+-------------------------------------------------------------------------------
+0)	General script to invoke QEMU with Buildroot linux as a guest:
 
 	**********************************************************************
 	**********************************************************************
@@ -27,7 +26,6 @@
 
 	**********************************************************************
 	**********************************************************************
-
 1)	RECOMPILATION OF LINUX SOURCES	
 
 	after having in the directory output/images 
@@ -37,8 +35,6 @@
 	
 	**********************************************************************
 	**********************************************************************
-
-
 2)      SSH FROM HOST TO GUEST QEMU
 
 	Compile Buildroot again and enable, openssh from 
@@ -61,8 +57,6 @@
 	
 	**********************************************************************
 	**********************************************************************
-
-
 3)	CROSS-COMPILE USER-SPACE PROGRAM AND SCP TO THE GUEST
 
 	Under apps directory can be found an example of how to 
@@ -73,16 +67,12 @@
 
 	**********************************************************************
 	**********************************************************************
-
-
 4)	CROSS-COMPILE LINUX KERNEL MODULES
 
 	sample program found under apps/sample_lkm/
 	
 	**********************************************************************
 	**********************************************************************
-
-
 5)	System Management Mode on QEMU
 
 
@@ -123,11 +113,17 @@
 	   a kernel module by writing on the specific ICR 
 	   register on the x86 architecture.
 
-
-
+	   Module can be found under apps/system-management-interrupts/smi-kernel-apic
+	   Triggers an SMI by writting the ICR register of the APIC.
+	   More info in the Intel Manual.
 
 	**********************************************************************
 	**********************************************************************
+6)	MEASUREMENT OF MACHINE CYCLES
+
+	Program which is measuring the machine cycles while a dummy function
+	executes.
+	Program can be found in directory with path: apps/machine-cycles-measurement.
 
 
-	
+
